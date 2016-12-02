@@ -1,5 +1,7 @@
 import * as express from 'express';
 
+import * as todoService from './todoService';
+
 const todoItems = [
     { title: 'Learn TypeScript', complete: false },
 ];
@@ -7,7 +9,7 @@ const todoItems = [
 const route = express.Router();
 
 route.get('/list', (req, res) => {
-    res.json(todoItems);
+    res.json(todoService.list());
 });
 
 route.post('/create', (req, res) => {
