@@ -14,7 +14,7 @@ route.get('/list', (req, res) => {
 
 route.post('/create', (req, res) => {
     let item = req.body;
-    todoItems.push(item);
+    todoService.create(item);
     res.status(201).send();
 });
 
