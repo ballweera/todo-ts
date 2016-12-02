@@ -1,8 +1,14 @@
 import * as express from 'express';
+import * as bodyParser from 'body-parser';
 
 const app = express();
-app.get('/', (req, res) => {
-    res.send('Hello');
+
+app.use(bodyParser.json());
+app.get('/list', (req, res) => {
+    const todoItems = [
+        { title: 'Learn TypeScript', complete: false },
+    ];
+    res.json(todoItems);
 });
 
 app.listen(3000, () => console.log('listen on 3000'));
