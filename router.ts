@@ -14,8 +14,8 @@ route.get('/list', (req, res) => {
 
 route.post('/create', (req, res) => {
     let item = req.body;
-    todoService.create(item);
-    res.status(201).send();
+    todoService.create(item).then(() => res.status(201).send());
+
 });
 
 export function registerRoute(app) {
