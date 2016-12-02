@@ -9,7 +9,7 @@ const todoItems = [
 const route = express.Router();
 
 route.get('/list', (req, res) => {
-    res.json(todoService.list());
+    todoService.list().then((todoItems) => res.json(todoItems));
 });
 
 route.post('/create', (req, res) => {
